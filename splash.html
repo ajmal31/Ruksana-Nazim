@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="7; url=index.html"> <!-- Redirect to main content after 7 seconds -->
+    <link rel="stylesheet" type="text/css" href="theme.css">
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: #000; /* Set initial background color */
+        }
+        .door-left, .door-right {
+            position: absolute;
+            top: 0;
+            width: 50%;
+            height: 100%;
+            background-color: #fff; /* Set initial background color to white */
+            z-index: 2;
+            animation-fill-mode: forwards;
+        }
+        .door-left {
+            left: 0;
+            transform-origin: left;
+            animation-name: openDoorLeft;
+            animation-duration: 2s;
+            animation-timing-function: ease-in-out;
+        }
+        .door-right {
+            right: 0;
+            transform-origin: right;
+            animation-name: openDoorRight;
+            animation-duration: 2s;
+            animation-timing-function: ease-in-out;
+        }
+        .logo {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+            
+        }
+        .logo-image{
+            border-radius: 100px;
+            
+        }
+        .text{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+        }
+        @keyframes openDoorLeft {
+            0% { transform: scaleX(1); background-color: #fff; } /* Start with white background */
+            100% { transform: scaleX(0); background-color: #000; } /* End with black background */
+        }
+        @keyframes openDoorRight {
+            0% { transform: scaleX(1); background-color: #fff; } /* Start with white background */
+            100% { transform: scaleX(0); background-color: #000; } /* End with black background */
+        }
+    </style>
+</head>
+<body>
+    <div class="door-left"></div>
+    <div class="door-right"></div>
+    <div class="logo"  >
+        <img class="logo-image" src="https://imgs.search.brave.com/Hqw_xeQzsg42kGRe1EZ4XMm_b5BAW1QGFlVxZgcDKl8/rs:fit:860:0:0/g:ce/aHR0cHM6Ly90My5m/dGNkbi5uZXQvanBn/LzAyLzQ2LzI5LzQ0/LzM2MF9GXzI0NjI5/NDQ0NF84aEJEQ2pk/SURCdmJwb0FiRGxK/YkNzRmJEWGdkV2JC/VS5qcGc" alt="Logo" width="200">
+    </div>
+    <!-- <h1 class="heading" > We are getting Married</h1> -->
+    <script>
+        setTimeout(function(){
+            document.querySelector('.door-left').style.animationName = 'closeDoorLeft';
+            document.querySelector('.door-right').style.animationName = 'closeDoorRight';
+            setTimeout(function(){
+                window.location.href = "index.html"; // Redirect to main content after animation
+            }, 2000); // Wait for closing animation duration before redirecting
+        }, 5000); // 5000 milliseconds = 5 seconds
+    </script>
+    <style>
+        @keyframes closeDoorLeft {
+            0% { transform: scaleX(0); background-color: #000; } /* Start with black background */
+            100% { transform: scaleX(1); background-color: #fff; } /* End with white background */
+        }
+        @keyframes closeDoorRight {
+            0% { transform: scaleX(0); background-color: #000; } /* Start with black background */
+            100% { transform: scaleX(1); background-color: #fff; } /* End with white background */
+        }
+    </style>
+</body>
+</html>
