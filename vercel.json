@@ -1,6 +1,6 @@
 {
     "rewrites": [
-      { "source": "/", "destination": "/splash.html" }
+      { "source": "/", "destination": "splash.html" }
     ]
   }
   
